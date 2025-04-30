@@ -1,7 +1,7 @@
 const Show = require("../models/Show/show.model");
 
 async function listShows() {
-  const shows = await Show.find({});
+  const shows = await Show.find({}).populate("staring");
   return shows;
 }
 

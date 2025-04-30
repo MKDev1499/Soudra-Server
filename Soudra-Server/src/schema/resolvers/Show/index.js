@@ -2,7 +2,7 @@ const { addShow, listShows } = require("../../../controllers/show.controllers");
 
 const ShowResolvers = {
   Query: {
-    actors: listShows,
+    shows: listShows,
   },
   Mutation: {
     addShow: (_, { showData }) => addShow(showData),
