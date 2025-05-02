@@ -13,6 +13,8 @@ const ShowType = gql`
     episodes: [Episode]
     rate: Int
     noOfListens: Int
+    likes: Int
+    disLikes: Int
   }
 `;
 

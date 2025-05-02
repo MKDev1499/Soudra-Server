@@ -4,9 +4,6 @@ const ActorModel = require("../models/Actor/actor.model");
 // ========================================= GET ======================================================
 
 async function listAllActors() {
-  console.log("====================================");
-  console.log("ACCCCCC");
-  console.log("====================================");
   const actors = await ActorModel.find({});
   return actors;
 }

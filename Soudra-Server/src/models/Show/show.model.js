@@ -11,6 +11,7 @@ const showSchema = new Schema(
     nameAr: String,
     descriptionEn: String,
     descriptionAr: String,
+    releaseYear: String,
     img: String,
     staring: {
       type: mongoose.Schema.ObjectId,
@@ -34,6 +35,14 @@ const showSchema = new Schema(
       default: 0,
     },
     noOfListens: {
+      type: Number,
+      default: 0,
+    },
+    likes: {
+      type: Number,
+      default: 0,
+    },
+    disLikes: {
       type: Number,
       default: 0,
     },

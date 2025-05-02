@@ -1,4 +1,8 @@
-const { addShow, listShows } = require("../../../controllers/show.controllers");
+const {
+  addShow,
+  listShows,
+  addEpisodes,
+} = require("../../../controllers/show.controllers");
 
 const ShowResolvers = {
   Query: {
@@ -6,6 +10,7 @@ const ShowResolvers = {
   },
   Mutation: {
     addShow: (_, { showData }) => addShow(showData),
+    addEpisodesToShow: (_, { data }) => addEpisodes(data),
   },
 };
 
