@@ -6,6 +6,11 @@ async function listShows() {
   return shows;
 }
 
+async function getShowDetails(showID) {
+  const show = await Show.findById(showID).populate("staring episodes actors");
+  return show;
+}
+
 async function addShow(showData) {
   const {
     nameEn,
@@ -52,4 +57,5 @@ module.exports = {
   addShow,
   listShows,
   addEpisodes,
+  getShowDetails,
 };
