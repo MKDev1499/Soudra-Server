@@ -53,9 +53,19 @@ async function addEpisodes(data) {
   });
 }
 
+async function addActorToShow(data) {
+  const { showID, actorID } = data ?? {};
+  return await Show.findByIdAndUpdate(showID, {
+    $addToSet: {
+      actors: actorID,
+    },
+  }).populate("actors");
+}
+
 module.exports = {
   addShow,
   listShows,
   addEpisodes,
   getShowDetails,
+  addActorToShow,
 };

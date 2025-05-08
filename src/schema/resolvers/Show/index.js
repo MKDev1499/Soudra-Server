@@ -3,6 +3,7 @@ const {
   listShows,
   addEpisodes,
   getShowDetails,
+  addActorToShow,
 } = require("../../../controllers/show.controllers");
 
 const ShowResolvers = {
@@ -13,6 +14,8 @@ const ShowResolvers = {
   Mutation: {
     addShow: (_, { showData }) => addShow(showData),
     addEpisodesToShow: (_, { data }) => addEpisodes(data),
+    addActorToShow: (_, { showID, actorID }) =>
+      addActorToShow({ showID, actorID }),
   },
 };
 

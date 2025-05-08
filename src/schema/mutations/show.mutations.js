@@ -26,6 +26,7 @@ const ShowMutations = gql`
   extend type Mutation {
     addShow(showData: ShowInput!): Show
     addEpisodesToShow(data: AddEpisodesInput): Show
+    addActorToShow(showID: String!, actorID: String!): Show
   }
 `;
 
