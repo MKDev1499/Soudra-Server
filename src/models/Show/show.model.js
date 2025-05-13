@@ -12,6 +12,7 @@ const showSchema = new Schema(
     descriptionEn: String,
     descriptionAr: String,
     releaseYear: String,
+    isCompleted: Boolean,
     img: String,
     staring: {
       type: mongoose.Schema.ObjectId,

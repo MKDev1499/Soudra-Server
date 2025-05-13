@@ -4,6 +4,7 @@ const {
   addEpisodes,
   getShowDetails,
   addActorToShow,
+  deleteShow,
 } = require("../../../controllers/show.controllers");
 
 const ShowResolvers = {
@@ -16,6 +17,7 @@ const ShowResolvers = {
     addEpisodesToShow: (_, { data }) => addEpisodes(data),
     addActorToShow: (_, { showID, actorID }) =>
       addActorToShow({ showID, actorID }),
+    deleteShow: async (_, { showID }) => deleteShow(showID),
   },
 };
 

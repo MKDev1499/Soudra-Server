@@ -15,6 +15,9 @@ const ShowType = gql`
     noOfListens: Int
     likes: Int
     disLikes: Int
+    isCompleted: Boolean
+    releaseYear: String
+    createdAt: String
   }
 `;
 

@@ -2,7 +2,9 @@ const Episode = require("../models/Episode/episode.model");
 const Show = require("../models/Show/show.model");
 
 async function listShows() {
-  const shows = await Show.find({}).populate("staring episodes");
+  const shows = await Show.find({})
+    .sort({ createdAt: -1 })
+    .populate("staring episodes");
   return shows;
 }
 
@@ -62,10 +64,15 @@ async function addActorToShow(data) {
   }).populate("actors");
 }
 
+async function deleteShow(showID) {
+  return await Show.findByIdAndDelete(showID);
+}
+
 module.exports = {
   addShow,
   listShows,
   addEpisodes,
   getShowDetails,
   addActorToShow,
+  deleteShow,
 };
