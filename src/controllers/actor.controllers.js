@@ -10,7 +10,7 @@ async function listAllActors() {
 }
 
 async function getActorShows(actorID) {
-  const shows = await ShowModel.find({ actors: actorID })
+  const shows = await ShowModel.find({ actors: actorID, isCompleted: true })
     .populate("staring episodes")
     .sort({ createdAt: -1 });
   return shows;

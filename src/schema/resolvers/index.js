@@ -1,6 +1,7 @@
 const ActorResolvers = require("./Actor");
 const EpisodeResolvers = require("./Episode");
 const ShowResolvers = require("./Show");
+const SharedResolvers = require("./Shared");
 
 // Combine resolvers
 const resolvers = {
@@ -8,11 +9,13 @@ const resolvers = {
     ...EpisodeResolvers.Query,
     ...ActorResolvers.Query,
     ...ShowResolvers.Query,
+    ...SharedResolvers.Query,
   },
   Mutation: {
     ...EpisodeResolvers.Mutation,
     ...ActorResolvers.Mutation,
     ...ShowResolvers.Mutation,
+    ...SharedResolvers.Mutation,
   },
 };
 

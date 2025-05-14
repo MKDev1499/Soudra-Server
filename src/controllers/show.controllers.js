@@ -2,7 +2,9 @@ const Episode = require("../models/Episode/episode.model");
 const Show = require("../models/Show/show.model");
 
 async function listShows() {
-  const shows = await Show.find({})
+  const shows = await Show.find({
+    isCompleted: true,
+  })
     .sort({ createdAt: -1 })
     .populate("staring episodes");
   return shows;
