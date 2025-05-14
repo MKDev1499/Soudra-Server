@@ -1,11 +1,19 @@
 const { default: axios } = require("axios");
 const ActorModel = require("../models/Actor/actor.model");
+const ShowModel = require("../models/Show/show.model");
 
 // ========================================= GET ======================================================
 
 async function listAllActors() {
   const actors = await ActorModel.find({});
   return actors;
+}
+
+async function getActorShows(actorID) {
+  const shows = await ShowModel.find({ actors: actorID })
+    .populate("staring episodes")
+    .sort({ createdAt: -1 });
+  return shows;
 }
 
 // ========================================= POST ======================================================
@@ -45,4 +53,5 @@ module.exports = {
   listAllActors,
   addActor,
   addActorByTMDB,
+  getActorShows,
 };
