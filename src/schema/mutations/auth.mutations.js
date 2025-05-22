@@ -12,14 +12,19 @@ const AuthMutations = gql`
     email: String
     password: String
   }
-
+  input SocialLoginInput {
+    name: String!
+    email: String!
+    id: String!
+    photo: String!
+  }
   type UserToken {
     token: String
   }
-
   extend type Mutation {
     register(userData: UserInput!): UserToken
     login(userData: LoginInput!): UserToken
+    googleLogin(userData: SocialLoginInput!): UserToken
   }
 `;
 

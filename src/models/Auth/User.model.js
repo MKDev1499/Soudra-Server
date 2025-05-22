@@ -12,6 +12,7 @@ const userSchema = new Schema(
     },
     img: String,
     password: String,
+    socialID: String,
   },
   {
     timestamps: true,

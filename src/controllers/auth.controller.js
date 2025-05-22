@@ -47,7 +47,50 @@ const loginUser = async (userData) => {
   }
 };
 
+const socialLogin = async (userData) => {
+  const { email, id } = userData ?? {};
+  try {
+    const user = await User.findOne({
+      email: email?.toLowerCase(),
+      socialID: id,
+    })
+      .select("-password")
+      .lean();
+    if (user) {
+      const token = jwt.sign({ ...user }, process.env.JWT_SECRET);
+      return token;
+    } else {
+      const token = await createSocialAccount(userData);
+      return token;
+    }
+  } catch (error) {
+    throw new Error(
+      JSON.stringify({
+        message: "Internal server error",
+        code: error?.code,
+      })
+    );
+  }
+};
+
+const createSocialAccount = async (userData) => {
+  const { name, email, id, photo } = userData ?? {};
+  const body = {
+    name,
+    email: email?.toLowerCase(),
+    img: photo,
+    socialID: id,
+    socialProvider: "google",
+  };
+  const newUser = new User(body);
+  const user = await newUser.save();
+  await User.updateOne({ _id: user?._id }, { id: user?._id });
+  const token = jwt.sign({ ...user?._doc }, process.env.JWT_SECRET);
+  return token;
+};
+
 module.exports = {
   registerUser,
   loginUser,
+  socialLogin,
 };

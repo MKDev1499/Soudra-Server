@@ -8,6 +8,9 @@ const AuthResolvers = {
   Mutation: {
     register: (_, { userData }) => registerUser(userData),
     login: (_, { userData }) => loginUser(userData),
+    googleLogin: (_, { userData }) => {
+      return socialLogin(userData);
+    },
   },
 };
 
