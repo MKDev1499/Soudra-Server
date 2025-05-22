@@ -48,6 +48,8 @@ const loginUser = async (userData) => {
 };
 
 const socialLogin = async (userData) => {
+  console.log("Social Login Data : ", userData);
+
   const { email, id } = userData ?? {};
   try {
     const user = await User.findOne({
@@ -58,10 +60,10 @@ const socialLogin = async (userData) => {
       .lean();
     if (user) {
       const token = jwt.sign({ ...user }, process.env.JWT_SECRET);
-      return token;
+      return { token };
     } else {
       const token = await createSocialAccount(userData);
-      return token;
+      return { token };
     }
   } catch (error) {
     throw new Error(

@@ -1,6 +1,7 @@
 const {
   registerUser,
   loginUser,
+  socialLogin,
 } = require("../../../controllers/auth.controller");
 
 const AuthResolvers = {
@@ -8,9 +9,7 @@ const AuthResolvers = {
   Mutation: {
     register: (_, { userData }) => registerUser(userData),
     login: (_, { userData }) => loginUser(userData),
-    googleLogin: (_, { userData }) => {
-      return socialLogin(userData);
-    },
+    googleLogin: (_, { userData }) => socialLogin(userData),
   },
 };
 
