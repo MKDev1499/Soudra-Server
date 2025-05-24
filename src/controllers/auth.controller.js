@@ -48,8 +48,6 @@ const loginUser = async (userData) => {
 };
 
 const socialLogin = async (userData) => {
-  console.log("Social Login Data : ", userData);
-
   const { email, id } = userData ?? {};
   try {
     const user = await User.findOne({
@@ -78,7 +76,7 @@ const socialLogin = async (userData) => {
 const createSocialAccount = async (userData) => {
   const { name, email, id, photo } = userData ?? {};
   const body = {
-    name,
+    userName: name,
     email: email?.toLowerCase(),
     img: photo,
     socialID: id,
