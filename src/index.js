@@ -9,12 +9,7 @@ const cors = require("cors");
 const app = express();
 connectDB();
 
-app.use(
-  cors({
-    origin: "http://localhost:3000", // ✅ replace with your frontend URL
-    credentials: true,
-  })
-);
+app.use(cors());
 
 app.use(
   "/graphql",
