@@ -11,6 +11,7 @@
   "dependencies": {
     "@graphql-tools/merge": "^9.0.15",
     "@graphql-tools/schema": "^10.0.14",
+    "aws-serverless-express": "^3.4.0",
     "axios": "^1.7.9",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
