@@ -4,7 +4,7 @@ const Show = require("../models/Show/show.model");
 async function listShows() {
   const shows = await Show.find({})
     .sort({ createdAt: -1 })
-    .populate("staring episodes");
+    .populate("staring episodes actors");
   return shows;
 }
 
