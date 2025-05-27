@@ -5,4 +5,8 @@ const QuestionTypeName = {
   GuessPlayerQ: "GuessPlayerQ",
 };
 
-module.exports = { QuestionTypeName };
+const InteractionTypeName = {
+  Like: "like",
+  Dislike: "dislike",
+};
+module.exports = { QuestionTypeName, InteractionTypeName };

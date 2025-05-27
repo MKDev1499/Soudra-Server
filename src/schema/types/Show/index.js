@@ -14,7 +14,7 @@ const ShowType = gql`
     rate: Int
     noOfListens: Int
     likes: Int
-    disLikes: Int
+    dislikes: Int
     isCompleted: Boolean
     releaseYear: String
     createdAt: String

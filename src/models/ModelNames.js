@@ -5,6 +5,7 @@ const names = {
   User: "User",
   Comment: "Comment",
   Category: "Category",
+  Interaction: "Interaction",
 };
 
 module.exports = names;

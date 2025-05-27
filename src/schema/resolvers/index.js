@@ -4,6 +4,7 @@ const ShowResolvers = require("./Show");
 const SharedResolvers = require("./Shared");
 const AuthResolvers = require("./Auth");
 const CommentResolvers = require("./Comment");
+const InteractionResolvers = require("./Interaction");
 
 // Combine resolvers
 const resolvers = {
@@ -14,6 +15,7 @@ const resolvers = {
     ...SharedResolvers.Query,
     ...AuthResolvers.Query,
     ...CommentResolvers.Query,
+    ...InteractionResolvers.Query,
   },
   Mutation: {
     ...EpisodeResolvers.Mutation,
@@ -22,6 +24,7 @@ const resolvers = {
     ...SharedResolvers.Mutation,
     ...AuthResolvers.Mutation,
     ...CommentResolvers.Mutation,
+    ...InteractionResolvers.Mutation,
   },
 };
 

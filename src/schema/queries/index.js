@@ -5,6 +5,7 @@ const ShowQueries = require("./show.queries");
 const SharedQueries = require("./shared.queries");
 const CommentQueries = require("./comment.queries");
 const AuthQueries = require("./auth.queries");
+const InteractionQueries = require("./interaction.queries");
 
 const queries = mergeTypeDefs([
   EpisodeQueries,
@@ -13,6 +14,7 @@ const queries = mergeTypeDefs([
   SharedQueries,
   CommentQueries,
   AuthQueries,
+  InteractionQueries,
 ]);
 
 module.exports = queries;
