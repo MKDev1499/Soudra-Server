@@ -1,7 +1,5 @@
 const mongoose = require("mongoose");
 const ModelNames = require("../ModelNames.js");
-const Actor = require("../Actor/actor.model.js");
-const Episode = require("../Episode/episode.model.js");
 
 const Schema = mongoose.Schema;
 
@@ -36,14 +34,6 @@ const showSchema = new Schema(
       default: 0,
     },
     noOfListens: {
-      type: Number,
-      default: 0,
-    },
-    likes: {
-      type: Number,
-      default: 0,
-    },
-    disLikes: {
       type: Number,
       default: 0,
     },

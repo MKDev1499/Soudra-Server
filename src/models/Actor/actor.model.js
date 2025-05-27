@@ -9,6 +9,12 @@ const actorSchema = new Schema(
     nameAr: String,
     img: String,
     plot: String,
+    favourites: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: ModelNames.User,
+      },
+    ],
   },
   {
     timestamps: true,

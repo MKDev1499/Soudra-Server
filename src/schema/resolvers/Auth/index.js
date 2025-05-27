@@ -2,10 +2,15 @@ const {
   registerUser,
   loginUser,
   socialLogin,
+  listUsers,
+  getUserById,
 } = require("../../../controllers/auth.controller");
 
 const AuthResolvers = {
-  Query: {},
+  Query: {
+    users: listUsers,
+    user: (_, { userID }) => getUserById(userID),
+  },
   Mutation: {
     register: (_, { userData }) => registerUser(userData),
     login: (_, { userData }) => loginUser(userData),

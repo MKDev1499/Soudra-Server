@@ -1,6 +1,29 @@
 const User = require("../models/Auth/User.model");
 const jwt = require("jsonwebtoken");
 
+const listUsers = async () => {
+  try {
+    const users = await User.find({}, "-password");
+    return users;
+  } catch (error) {
+    console.log("Error fetching users: ", error);
+    throw new Error("Internal server error");
+  }
+};
+
+const getUserById = async (id) => {
+  try {
+    const user = await User.findById(id, "-password").lean();
+    if (!user) {
+      throw new Error("User not found");
+    }
+    return user;
+  } catch (error) {
+    console.log("Error fetching user by ID: ", error);
+    throw new Error("Internal server error");
+  }
+};
+
 const registerUser = async (userData) => {
   try {
     const { email } = userData ?? {};
@@ -93,4 +116,6 @@ module.exports = {
   registerUser,
   loginUser,
   socialLogin,
+  listUsers,
+  getUserById,
 };

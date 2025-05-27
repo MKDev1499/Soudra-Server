@@ -8,6 +8,12 @@ const episodeSchema = new Schema(
     nameEn: String,
     nameAr: String,
     url: String,
+    listeners: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: ModelNames.User,
+      },
+    ],
   },
   {
     timestamps: true,
