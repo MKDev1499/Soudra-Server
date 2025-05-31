@@ -4,12 +4,13 @@ const {
   updateInteraction,
   getShowInteractions,
   getAllInteractions,
+  getUserInteractions,
 } = require("../../../controllers/interaction.controller");
 
 const CommentResolver = {
   Query: {
     getShowInteractions: (_, { showID }) => getShowInteractions(showID),
-    getUserIntreactions: (_, { userID }) => getUserIntreactions(userID),
+    getUserIntreactions: (_, { userID }) => getUserInteractions(userID),
     getAllInteractions: () => getAllInteractions(),
   },
   Mutation: {
