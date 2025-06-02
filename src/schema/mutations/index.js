@@ -4,6 +4,7 @@ const ShowMutations = require("./show.mutations");
 const AuthMutations = require("./auth.mutations");
 const CommentMutations = require("./comment.mutations");
 const InteractionMutations = require("./interaction.mutation");
+const EpisodeMutations = require("./episode.mutations");
 
 const mutations = mergeTypeDefs([
   ActorMutations,
@@ -11,6 +12,7 @@ const mutations = mergeTypeDefs([
   AuthMutations,
   CommentMutations,
   InteractionMutations,
+  EpisodeMutations,
 ]);
 
 module.exports = mutations;

@@ -9,9 +9,9 @@ const {
 
 const CommentResolver = {
   Query: {
-    getShowComments: (_, { showID }) => getShowCommentsByID(showID),
-    getUserComments: (_, { userID }) => getUserComments(userID),
-    getAllComments: () => getAllComments(),
+    showComments: (_, { showID }) => getShowCommentsByID(showID),
+    userComments: (_, { userID }) => getUserComments(userID),
+    comments: () => getAllComments(),
   },
   Mutation: {
     addComment: (_, { commentData }) => addComment(commentData),

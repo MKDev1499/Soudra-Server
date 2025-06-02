@@ -6,6 +6,8 @@ const EpisodeType = gql`
     nameEn: String!
     nameAr: String!
     url: String!
+    listeners: [User!]!
+    createdAt: String!
   }
 `;
 

@@ -2,9 +2,9 @@ const { gql } = require("graphql-tag");
 
 const CommentQueries = gql`
   extend type Query {
-    getShowComments(showID: String!): [Comment]
-    getUserComments(userID: String!): [Comment]
-    getAllComments: [Comment]
+    showComments(showID: String!): [Comment]
+    userComments(userID: String!): [Comment]
+    comments: [Comment]
     getComment(commentID: String!): Comment
     getCommentsByShow(showID: String!): [Comment]
     getCommentsByUser(userID: String!): [Comment]

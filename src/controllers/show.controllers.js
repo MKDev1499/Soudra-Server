@@ -9,7 +9,10 @@ async function listShows() {
 }
 
 async function getShowDetails(showID) {
-  const show = await Show.findById(showID).populate("staring episodes actors");
+  const show = await Show.findById(showID).populate("staring actors").populate({
+    path: "episodes",
+    populate: "listeners",
+  });
   return show;
 }
 
